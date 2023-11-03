@@ -1,0 +1,22 @@
+{
+    "name": "MagmaMc.AdminUtil.Extended.Editor",
+    "references": [
+        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
+        "GUID:99835874ee819da44948776e0df4ff1d",
+        "GUID:3c1bc1267eab5884ebe7f232c09ee0d9",
+        "GUID:3456780c4fb2d324ab9c633d6f1b0ddb",
+        "GUID:0b2579d24c9c1c74f9561fb5ab94c1fc",
+        "GUID:b9429ec5e08a38b40a9b7363d67720f3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
