@@ -1,7 +1,7 @@
 {
 	"name" : "net.magma-mc.adminutil.extended",
 	"displayName" : "MagmaMc.AdminUtil.Extended",
-	"version" : "0.1.0",
+	"version" : "0.2.0",
     "url": "https://github.com/MagmaMcNet/AdminUtil.Extended.git",
 	"unity" : "2019.4",
 	"description" : "An Extension For Magma.AdminUtil Framework",
@@ -12,7 +12,7 @@
 	},
 	"vpmDependencies" : {
         "com.vrchat.worlds": "^3.3.0",
-        "net.magma-mc.adminutil": "^0.1.0"
+        "net.magma-mc.adminutil": "^1.0.0"
 	},
 	"samples" : [],
 	"legacyFolders" : { }
