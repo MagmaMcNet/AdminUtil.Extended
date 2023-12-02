@@ -3,13 +3,13 @@ using System;
 using UnityEngine;
 using VRC.SDKBase;
 
-public class AdminUtilExtended : ConfigRequestHandler
+public class AdminUtilExtended : IAdminUtil
 {
     public GameObject BannedObject;
 
-    public string[] AdminList = new string[0];
-    public string[] BannedList = new string[0];
-    public string[] WatchList = new string[0];
+    public override string[] AdminList { get; set; } = new string[0];
+    public override string[] BannedList { get; set; } = new string[0];
+    public string[] WatchList { get; set; } = new string[0];
 
     public WatchList_Object[] WatchListObjectPool = new WatchList_Object[25];
     private bool ShowingWatchList = true;
@@ -75,15 +75,24 @@ public class AdminUtilExtended : ConfigRequestHandler
     }
 
 
-    public bool AdminListContains(string Player) => ArrayContains(AdminList, Player, false);
-    public bool AdminListContains(VRCPlayerApi Player) => ArrayContains(AdminList, Player.displayName, false);
-    public bool AdminListContains(int Player) => ArrayContains(AdminList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
+    public override bool AdminListContains(string Player) => ArrayContains(AdminList, Player, false);
+    public override bool BannedListContains(string Player) => ArrayContains(BannedList, Player, false);
+    public override bool AdminListContains(VRCPlayerApi Player) => ArrayContains(AdminList, Player.displayName, false);
 
-    public bool BannedListContains(string Player) => ArrayContains(BannedList, Player, false);
-    public bool BannedListContains(VRCPlayerApi Player) => ArrayContains(BannedList, Player.displayName, false);
-    public bool BannedListContains(int Player) => ArrayContains(BannedList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
+    public override bool BannedListContains(VRCPlayerApi Player) => ArrayContains(BannedList, Player.displayName, false);
+    public override bool AdminListContains(int Player) => ArrayContains(AdminList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
+    public override bool BannedListContains(int Player) => ArrayContains(BannedList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
 
     public bool WatchListContains(string Player) => ArrayContains(WatchList, Player, false);
     public bool WatchListContains(VRCPlayerApi Player) => ArrayContains(WatchList, Player.displayName, false);
     public bool WatchListContains(int Player) => ArrayContains(WatchList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
+
+
+    public override bool IsAdmin(VRCPlayerApi Player) => AdminListContains(Player.displayName);
+    public override bool IsAdmin(string Player) => AdminListContains(Player);
+    public override bool IsAdmin(int Player) => AdminListContains(Player);
+
+    public override bool IsBanned(VRCPlayerApi Player) => BannedListContains(Player.displayName);
+    public override bool IsBanned(string Player) => BannedListContains(Player);
+    public override bool IsBanned(int Player) => BannedListContains(Player);
 }
